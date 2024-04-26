@@ -94,6 +94,7 @@
 }
 
 .text-center{
+    margin-top: 10px;
     align-self: center;
     display: flex;
     flex-direction: column;

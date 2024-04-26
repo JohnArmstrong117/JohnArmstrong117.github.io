@@ -31,7 +31,7 @@
                         <img class="card-image" src="CSS/images/PeachAndMousyIMG.png" />
                     </div>
                     <div class="card-footer">
-                        <button>
+                        <button id="pmButton">
                             View Now!
                         </button>
                     </div>
@@ -39,4 +39,10 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('pmButton').addEventListener("click",function(){
+            window.location.href = "PeachAndMousy.html"
+        });
+    </script>
+    <script src="JS/navscript.js"></script>
 </body>
