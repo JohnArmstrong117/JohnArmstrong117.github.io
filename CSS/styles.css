@@ -37,3 +37,69 @@
     color: white;
     cursor: pointer;
 }
+
+.card-container{
+    border-top: solid;
+    border-top-color: black;
+}
+
+.card-custom {
+    margin-top: 10px;
+    background-color: lightgray;
+    height: 270px;
+    width: 300px;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img-box{
+    height: 160px;
+    overflow: clip;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1px;
+}
+
+.card-image{
+    height: 150px;
+    width: auto;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.card-footer{
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-text-custom {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid;
+    border-color: black;
+    border-bottom-width: 1px;
+}
+
+.text-center{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-4{
+    margin-bottom: 0px;
+}
