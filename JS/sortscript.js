@@ -1,4 +1,5 @@
 let array = [];
+let audioCtx = null;
 
 function generateArray(size = 50){
     array = Array.from({length: size}, () => Math.floor(Math.random() * 300));
@@ -17,6 +18,10 @@ function renderArray(){
 }
 
 async function startSort(){
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
     const algo = document.getElementById("algorithm").value;
     if (algo === "bubble") await bubbleSort();
     else if (algo === "selection") await selectionSort();
@@ -38,22 +43,23 @@ async function bubbleSort(){
 }
 
 function playNote(height){
-    if (document.getElementById("muteToggle").checked) return;
-    const context = new (window.AudioContext || window.webkitAudioContext)();
-    const oscillator = context.createOscillator();
-    const gainNode = context.createGain();
+    if (document.getElementById("muteToggle")?.checked) return;
+    if (!audioCtx) return;
+
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
 
     const frequency = 200 + (height / 300) * 800;
     oscillator.frequency.value = frequency;
-
     oscillator.type = "sine";
+
     oscillator.connect(gainNode);
-    gainNode.connect(context.destination);
+    gainNode.connect(audioCtx.destination);
 
     oscillator.start();
-    gainNode.gain.setValueAtTime(0.1, context.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.2);
-    oscillator.stop(context.currentTime + 0.2);
+    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.2);
+    oscillator.stop(audioCtx.currentTime + 0.2);
 }
 
 async function selectionSort(){
@@ -68,7 +74,7 @@ async function selectionSort(){
         [array[i], array[minIdx]] = [array[minIdx], array[i]];
         bars[i].style.height = `${array[i]}px`;
         bars[minIdx].style.height = `${array[minIdx]}px`;
-        playNote(array[j]);
+        playNote(array[i]);
         await sleep(30);
     }
 }
@@ -77,4 +83,4 @@ function sleep(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-generateA
+generateArray();
