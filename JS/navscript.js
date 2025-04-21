@@ -13,3 +13,7 @@ document.getElementById('contactNav').addEventListener('click', function(){
 document.getElementById('catNav').addEventListener('click', function(){
     window.location.href = "CatGenerator.html"
 })
+
+document.getElementById('sortNav').addEventListener('click', function(){
+    window.location.href = "SortingAlgorithms.html"
+})
