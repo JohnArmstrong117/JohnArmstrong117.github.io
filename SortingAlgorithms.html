@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/sort-style.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body style="margin: 0px; width: 100%;">
+    <div class="header-bar">
+        <div class="title-container">
+            <a class="title-text" style="color: white;">John Armstrong</h1>
+        </div>
+        <div class="nav-container">
+            <a class="nav-text" id="homeNav">Home</a>
+            <a class="nav-text" id="aboutNav">About</a>
+            <a class="nav-text" id="contactNav">Contact</a>
+            <a class="nav-text" id="catNav">Cats!</a>
+        </div>
+    </div>
+
+    <h1>Sorting Visualizer</h1>
+    <div>
+        <button onclick="generateArray()">Generate New Array</button>
+        <select id="algorithm">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+        </select>
+        <button onclick="startSort()">Sort!</button>
+    </div>
+    <div id="array-container"></div>
+
+    <script src="JS/sortscript.js"></script>
+    <script src="JS/navscript.js"></script>
+</body>
