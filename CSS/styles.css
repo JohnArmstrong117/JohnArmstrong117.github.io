@@ -116,3 +116,26 @@
     max-width: 500px;
     margin: 0 auto;
 }
+
+.cat-img{
+    width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.cat-button{
+    background-color: #d81b60;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cat-button:hover{
+    background-color: #c2185b;
+}
