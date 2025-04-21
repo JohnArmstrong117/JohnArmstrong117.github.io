@@ -57,7 +57,7 @@ function playNote(height){
     gainNode.connect(audioCtx.destination);
 
     oscillator.start();
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime);
     gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.2);
     oscillator.stop(audioCtx.currentTime + 0.2);
 }
