@@ -9,3 +9,7 @@ document.getElementById('aboutNav').addEventListener('click', function(){
 document.getElementById('contactNav').addEventListener('click', function(){
     window.location.href = "Contact.html"
 });
+
+document.getElementById('catNav').addEventListener('click', function(){
+    window.location.href = "CatGenerator.html"
+})
