@@ -30,10 +30,30 @@ async function bubbleSort(){
                 [array[j], array[j + 1]] = [array[j + 1], array[j]];
                 bars[j].style.height = `${array[j]}px`;
                 bars[j + 1].style.height = `${array[j + 1]}px`;
+                playNote(array[j]);
                 await sleep(30);
             }
         }
     }
+}
+
+function playNote(height){
+    if (document.getElementById("muteToggle").checked) return;
+    const context = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = context.createOscillator();
+    const gainNode = context.createGain();
+
+    const frequency = 200 + (height / 300) * 800;
+    oscillator.frequency.value = frequency;
+
+    oscillator.type = "sine";
+    oscillator.connect(gainNode);
+    gainNode.connect(context.destination);
+
+    oscillator.start();
+    gainNode.gain.setValueAtTime(0.1, context.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.2);
+    oscillator.stop(context.currentTime + 0.2);
 }
 
 async function selectionSort(){
@@ -48,6 +68,7 @@ async function selectionSort(){
         [array[i], array[minIdx]] = [array[minIdx], array[i]];
         bars[i].style.height = `${array[i]}px`;
         bars[minIdx].style.height = `${array[minIdx]}px`;
+        playNote(array[j]);
         await sleep(30);
     }
 }
