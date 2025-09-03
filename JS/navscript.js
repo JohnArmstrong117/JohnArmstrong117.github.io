@@ -17,3 +17,7 @@ document.getElementById('catNav').addEventListener('click', function(){
 document.getElementById('sortNav').addEventListener('click', function(){
     window.location.href = "SortingAlgorithms.html"
 });
+
+document.getElementById('githubNav').addEventListener('click', function(){
+    window.open('https://github.com/JohnArmstrong117', '_blank');
+});
